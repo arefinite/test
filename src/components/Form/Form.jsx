@@ -20,6 +20,15 @@ const Form = () => {
     inputRef.current.focus()
   }
 
+  const handleCancel = e => {
+    e.preventDefault()
+    setDate('')
+    setAmount('')
+    setMode('Cash')
+    setRemark('')
+    inputRef.current.focus()
+  }
+
   return (
     <>
       <div className={style.container}>
@@ -73,10 +82,12 @@ const Form = () => {
           </label>
 
           <div className={style.button}>
-            <button className={style.cancel}>CANCEL</button>
             <button className={style.submit}>SUBMIT</button>
           </div>
         </form>
+        <button onClick={handleCancel} className={style.cancel}>
+          CANCEL
+        </button>
       </div>
 
       <div>
