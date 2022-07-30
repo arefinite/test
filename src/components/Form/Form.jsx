@@ -73,20 +73,24 @@ const Form = () => {
       </div>
 
       <div>
-        {data.length > 0 &&
-          data.map(d => {
-            return (
-              <div
-                className={style.list}
-                key={d.date + d.amount + Math.random() * 1000}
-              >
-                <p>Date: {d.date}</p>
-                <p>Amount: {d.amount}</p>
-                <p>Mode: {d.mode}</p>
-                <p>Remarks: {d.remark}</p>
-              </div>
-            )
-          })}
+        {data.length > 0 && (
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Payment Mode</th>
+              <th>Remark</th>
+            </tr>
+            {data.map(d => (
+              <tr key={d.date * Math.random()}>
+                <td>{d.date}</td>
+                <td>{d.amount}</td>
+                <td>{d.mode}</td>
+                <td>{d.remark}</td>
+              </tr>
+            ))}
+          </table>
+        )}
       </div>
     </>
   )

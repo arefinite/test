@@ -37,13 +37,22 @@
 .form input,select{
     padding: 0.5rem;
 }
-.list {
-    display: flex;
-    column-gap: 2rem;
-    background-color: antiquewhite;
-    margin-top: 1rem;
-    padding: 0.5rem;
-}
 .req {
     color: red;
+}
+table{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+tr,td,th{
+    text-align: center;
+    padding: 1rem;
+}
+
+tr:nth-child(even){
+    background-color: antiquewhite;
+}
+tr:nth-child(odd){
+    background-color:bisque;
 }
