@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { useState } from 'react'
 import style from './Form.module.css'
 const Form = () => {
@@ -6,12 +7,17 @@ const Form = () => {
   const [amount, setAmount] = useState('')
   const [mode, setMode] = useState('Cash')
   const [remark, setRemark] = useState('')
+  const inputRef = useRef()
 
   const handleSubmit = e => {
     e.preventDefault()
     const newData = { date, amount, mode, remark }
     setData(prevData => [...prevData, newData])
-    console.log(data)
+    setDate('')
+    setAmount('')
+    setMode('Cash')
+    setRemark('')
+    inputRef.current.focus()
   }
 
   return (
@@ -26,6 +32,7 @@ const Form = () => {
             <input
               type='date'
               value={date}
+              ref={inputRef}
               placeholder='Enter Date'
               onChange={e => setDate(e.target.value)}
               required
@@ -59,7 +66,7 @@ const Form = () => {
             <span>Remark: </span>
             <input
               type='text'
-              remark={remark}
+              value={remark}
               placeholder='Enter Remark'
               onChange={e => setRemark(e.target.value)}
             />
