@@ -73,7 +73,7 @@ const Form = () => {
       </div>
 
       <div>
-        {data.length > 0 ? (
+        {data.length > 0 &&
           data.map(d => {
             return (
               <div
@@ -86,10 +86,7 @@ const Form = () => {
                 <p>Remarks: {d.remark}</p>
               </div>
             )
-          })
-        ) : (
-          <p>There is no data</p>
-        )}
+          })}
       </div>
     </>
   )
